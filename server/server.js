@@ -1,15 +1,22 @@
-const http = require('http')
-const { Server } = require('node:http')
+const express = require("express")
+const mongoose = require("mongoose")
 
-const PORT = 3000
+// Create the server instance
+const app = express()
 
+// this tells the server to only accept incoming data as JSON
+app.use(express.json())
 
-http.createServer((req, res) => {
-    res.setHeader("Content-Type", "text/plain")
-    res.end("Hello World")
+// connect to MongoDB 
+mongoose.connect("mongodb://localhost:27017/post", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 })
+.then(() => console.log("Connected to MongoDB Luke :)"))
+.catch((err) => console.log(err))
 
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
+const PORT = 4000
+
+app.listen(PORT, () => {
+    console.log("Server Rolling down the Rhine ;)")
 })
-
