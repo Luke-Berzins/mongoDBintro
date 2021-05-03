@@ -18,5 +18,5 @@ mongoose.connect("mongodb://localhost:27017/post", {
 const PORT = 4000
 
 app.listen(PORT, () => {
-    console.log("Server Rolling down the Rhine ;)")
+    console.log("Server Rolling down the Rhine")
 })
