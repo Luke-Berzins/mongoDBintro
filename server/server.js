@@ -17,6 +17,25 @@ mongoose.connect("mongodb://localhost:27017/post", {
 
 const PORT = 4000
 
+
+
+const getPosts = app.get("/posts", function(req, res) {
+    Post.find(function(err, posts) {
+        if (err) {
+            return res.status(500).json({error: err.message})
+        }
+        else return res.status(200).json({posts: posts})
+    })
+    console.log("hi")
+})
+
+
+
+
+
+
+
+
 app.listen(PORT, () => {
     console.log("Server Rolling down the Rhine")
 })
