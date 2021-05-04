@@ -1,5 +1,4 @@
-const express = require('express')
-const { Mongoose } = require('mongoose')
+const mongoose = require('mongoose')
 
 // schema
 
