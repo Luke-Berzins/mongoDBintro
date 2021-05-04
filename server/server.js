@@ -19,16 +19,29 @@ const PORT = 4000
 
 
 
-const getPosts = app.get("/posts", function(req, res) {
+app.get("/posts", function(req, res) {
     Post.find(function(err, posts) {
         if (err) {
             return res.status(500).json({error: err.message})
         }
         else return res.status(200).json({posts: posts})
     })
-    console.log("hi")
 })
 
+app.post('./posts', function(req, res) {
+    const { id, title, body } = req.body
+    const post = new Post({
+        id: id,
+        title: title,
+        body: body,
+    })
+    post.save(function(err, newPost) {
+        if (err) {
+            return res.response(500).json({err: err.message})
+        }
+        res.status(200).json({msg: "Post saved"})
+    })
+})
 
 
 
