@@ -9,7 +9,7 @@ axios.get('./')
 
 function App() {
   const [data, setData] = useState('Hello')
-
+  const [message, setMessage] = useState()
 
   const makePost = (e) => {
     e.preventDefault()
@@ -29,11 +29,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-          Hi
+          {message}
         </div>
         <div>
           {data}
         </div>
+        <input onChange={e => setMessage(e.target.value)}></input>
         <button onClick={makePost}>
           HELLO
         </button>
