@@ -28,7 +28,7 @@ app.get("/posts", function(req, res) {
     })
 })
 
-app.post('./posts', function(req, res) {
+app.post('/posts', function(req, res) {
     const { id, title, body } = req.body
     const post = new Post({
         id: id,
@@ -42,9 +42,6 @@ app.post('./posts', function(req, res) {
         res.status(200).json({msg: "Post saved"})
     })
 })
-
-
-
 
 
 
