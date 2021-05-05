@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react'
 import { useState } from 'react'
-
-
 const axios = require('axios')
-axios.get('./')
+
+
+
 
 
 function App() {
@@ -14,12 +14,11 @@ function App() {
   const makePost = (e) => {
     e.preventDefault()
     axios.post('/posts', {
-      title: 'Hello',
+      title: message,
       body: 'yoyoyo',
     }).then(res => {
-      console.log("yo", res.data.msg.title)
-      setData(res.data.msg.title)
-      
+      console.log("yo", res.data.title)
+      setData(res.data.title)
     }).catch(err => {
       console.log(err)
     })

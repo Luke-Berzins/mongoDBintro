@@ -37,7 +37,7 @@ app.post('/posts', function(req, res) {
     })
     post.save().then(savedPost => {
         console.log(savedPost)
-        res.send({msg: savedPost})
+        res.send({title: savedPost.title})
     })
         
     
