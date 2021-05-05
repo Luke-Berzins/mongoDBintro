@@ -1,6 +1,6 @@
 const express = require("express")
 const mongoose = require("mongoose")
-
+const Post = require('./models/Post')
 // Create the server instance
 const app = express()
 
@@ -30,17 +30,18 @@ app.get("/posts", function(req, res) {
 
 app.post('/posts', function(req, res) {
     const { id, title, body } = req.body
+    console.log(req.body)
     const post = new Post({
         id: id,
         title: title,
         body: body,
     })
-    post.save(function(err, newPost) {
-        if (err) {
-            return res.response(500).json({err: err.message})
-        }
+    console.log(post)
+    post.save().then(savedPost => {
         res.status(200).json({msg: "Post saved"})
     })
+        
+    
 })
 
 
