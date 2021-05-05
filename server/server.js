@@ -30,15 +30,14 @@ app.get("/posts", function(req, res) {
 
 app.post('/posts', function(req, res) {
     const { id, title, body } = req.body
-    console.log(req.body)
     const post = new Post({
         id: id,
         title: title,
         body: body,
     })
-    console.log(post)
     post.save().then(savedPost => {
-        res.status(200).json({msg: "Post saved"})
+        console.log(savedPost)
+        res.send({msg: savedPost})
     })
         
     

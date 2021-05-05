@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react'
 import { useState } from 'react'
 
 
@@ -7,17 +8,18 @@ axios.get('./')
 
 
 function App() {
-  const [data, setData] = useState()
+  const [data, setData] = useState('Hello')
 
 
   const makePost = (e) => {
     e.preventDefault()
     axios.post('/posts', {
-      title: 'Whatup',
+      title: 'Hello',
       body: 'yoyoyo',
     }).then(res => {
-      console.log("yo", res.body)
-      setData(res.body)
+      console.log("yo", res.data.msg.title)
+      setData(res.data.msg.title)
+      
     }).catch(err => {
       console.log(err)
     })
